@@ -21,7 +21,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="pt">
         <head>
-        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="favicon" type="image/png" href="favicon.png" />
         </head>
         <body className={inter.className}>
           <ConfettiProvider />

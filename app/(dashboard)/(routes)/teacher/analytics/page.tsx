@@ -28,7 +28,7 @@ const AnalyticsPage = async () => {
           shouldFormat
         />
         <DataCard
-          label="Total Vendas"
+          label="Total de Vendas"
           value={totalSales}
         />
       </div>

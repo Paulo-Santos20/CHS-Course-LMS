@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
   title: z.string().min(1, {
-    message: "Titulo é obrigatório",
+    message: "Título é obrigatório",
   }),
 });
 
@@ -55,7 +55,7 @@ const CreatePage = () => {
         </h1>
         <p className="text-sm text-slate-600">
         Como você gostaria de nomear seu curso?
- Nã&apos;o se preocupe, você pode mudar isso depois.
+ Não se preocupe, você pode mudar isso depois.
         </p>
         <Form {...form}>
           <form

@@ -94,7 +94,7 @@ export const ChapterTitleForm = ({
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="e.g. 'Introduction to the course'"
+                      placeholder="Ex: 'Introdução ao Curso'"
                       {...field}
                     />
                   </FormControl>

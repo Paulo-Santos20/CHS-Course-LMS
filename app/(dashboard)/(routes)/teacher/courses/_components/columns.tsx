@@ -24,7 +24,7 @@ export const columns: ColumnDef<Course>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Titulo
+          Título
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -45,7 +45,7 @@ export const columns: ColumnDef<Course>[] = [
     },
     cell: ({ row }) => {
       const price = parseFloat(row.getValue("price") || "0");
-      const formatted = new Intl.NumberFormat("en-US", {
+      const formatted = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
       }).format(price);

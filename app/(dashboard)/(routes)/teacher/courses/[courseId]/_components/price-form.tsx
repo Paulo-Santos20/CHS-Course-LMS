@@ -53,7 +53,7 @@ export const PriceForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course updated");
+      toast.success("Curso atualizado");
       toggleEdit();
       router.refresh();
     } catch {
@@ -83,7 +83,7 @@ export const PriceForm = ({
         )}>
           {initialData.price
             ? formatPrice(initialData.price)
-            : "No price"
+            : "Sem preço"
           }
         </p>
       )}
@@ -103,7 +103,7 @@ export const PriceForm = ({
                       type="number"
                       step="0.01"
                       disabled={isSubmitting}
-                      placeholder="Set a price for your course"
+                      placeholder="Informe o valor do curso"
                       {...field}
                     />
                   </FormControl>
