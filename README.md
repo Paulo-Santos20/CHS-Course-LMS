@@ -65,9 +65,9 @@ STRIPE_WEBHOOK_SECRET=
 NEXT_PUBLIC_TEACHER_ID=
 ```
 
-### Setup Prisma
+### Comandos Prisma
 
-Add MySQL Database (I used PlanetScale)
+Adicione MySQL Database (I used PlanetScale)
 
 ```shell
 npx prisma generate
@@ -75,7 +75,7 @@ npx prisma db push
 
 ```
 
-### Start the app
+### Iniciar o app
 
 ```shell
 npm run dev
@@ -85,6 +85,6 @@ npm run dev
 
 Running commands with npm `npm run [command]`
 
-| command         | description                              |
+| comando         | descrição                             |
 | :-------------- | :--------------------------------------- |
 | `dev`           | Starts a development instance of the app |
