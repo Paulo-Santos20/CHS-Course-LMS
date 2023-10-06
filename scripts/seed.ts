@@ -16,7 +16,7 @@ async function main() {
       ]
     });
 
-    console.log("Success");
+    console.log("Successo");
   } catch (error) {
     console.log("Erro ao propagar as categorias do banco de dados", error);
   } finally {

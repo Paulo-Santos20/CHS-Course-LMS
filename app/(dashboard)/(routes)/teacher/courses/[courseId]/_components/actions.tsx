@@ -70,7 +70,7 @@ export const Actions = ({
         variant="outline"
         size="sm"
       >
-        {isPublished ? "Rascunho" : "Publicado"}
+        {isPublished ? "Rascunho" : "Publicar"}
       </Button>
       <ConfirmModal onConfirm={onDelete}>
         <Button size="sm" disabled={isLoading}>

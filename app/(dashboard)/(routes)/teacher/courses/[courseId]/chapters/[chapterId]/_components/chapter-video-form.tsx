@@ -91,7 +91,7 @@ export const ChapterVideoForm = ({
             }}
           />
           <div className="text-xs text-muted-foreground mt-4">
-           Carregue este capítul&apos;o do vídeo
+           Carregue o video do capítulo
           </div>
         </div>
       )}
