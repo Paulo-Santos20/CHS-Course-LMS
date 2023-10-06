@@ -67,7 +67,7 @@ export function DataTable<TData, TValue>({
         <Link href="/teacher/create">
           <Button>
             <PlusCircle className="h-4 w-4 mr-2" />
-            New course
+            Novo curso
           </Button>
         </Link>
       </div>
@@ -108,7 +108,7 @@ export function DataTable<TData, TValue>({
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  No results.
+                  Sem resultados
                 </TableCell>
               </TableRow>
             )}
@@ -122,7 +122,7 @@ export function DataTable<TData, TValue>({
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          Previous
+          Anterior
         </Button>
         <Button
           variant="outline"
@@ -130,7 +130,7 @@ export function DataTable<TData, TValue>({
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          Next
+          Próximo
         </Button>
       </div>
     </div>

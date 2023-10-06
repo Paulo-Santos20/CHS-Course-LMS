@@ -11,7 +11,7 @@ export async function PUT(
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const { list } = await req.json();
@@ -24,7 +24,7 @@ export async function PUT(
     });
 
     if (!ownCourse) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     for (let item of list) {
@@ -34,9 +34,9 @@ export async function PUT(
       });
     }
 
-    return new NextResponse("Success", { status: 200 });
+    return new NextResponse("Successo", { status: 200 });
   } catch (error) {
     console.log("[REORDER]", error);
-    return new NextResponse("Internal Error", { status: 500 }); 
+    return new NextResponse("Erro Interno", { status: 500 }); 
   }
 }

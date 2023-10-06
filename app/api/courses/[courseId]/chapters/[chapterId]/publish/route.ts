@@ -11,7 +11,7 @@ export async function PATCH(
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const ownCourse = await db.course.findUnique({
@@ -22,7 +22,7 @@ export async function PATCH(
     });
 
     if (!ownCourse) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const chapter = await db.chapter.findUnique({
@@ -39,7 +39,7 @@ export async function PATCH(
     });
 
     if (!chapter || !muxData || !chapter.title || !chapter.description || !chapter.videoUrl) {
-      return new NextResponse("Missing required fields", { status: 400 });
+      return new NextResponse("Faltando campos obrigatórios", { status: 400 });
     }
 
     const publishedChapter = await db.chapter.update({
@@ -55,6 +55,6 @@ export async function PATCH(
     return NextResponse.json(publishedChapter);
   } catch (error) {
     console.log("[CHAPTER_PUBLISH]", error);
-    return new NextResponse("Internal Error", { status: 500 }); 
+    return new NextResponse("Erro Interno", { status: 500 }); 
   }
 }

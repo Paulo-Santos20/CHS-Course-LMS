@@ -11,7 +11,7 @@ export async function PATCH(
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const ownCourse = await db.course.findUnique({
@@ -22,7 +22,7 @@ export async function PATCH(
     });
 
     if (!ownCourse) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const unpublishedChapter = await db.chapter.update({
@@ -56,6 +56,6 @@ export async function PATCH(
     return NextResponse.json(unpublishedChapter);
   } catch (error) {
     console.log("[CHAPTER_UNPUBLISH]", error);
-    return new NextResponse("Internal Error", { status: 500 }); 
+    return new NextResponse("Erro Interno", { status: 500 }); 
   }
 }

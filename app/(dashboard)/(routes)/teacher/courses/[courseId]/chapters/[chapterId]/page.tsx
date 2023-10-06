@@ -67,15 +67,15 @@ const ChapterIdPage = async ({
               className="flex items-center text-sm hover:opacity-75 transition mb-6"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to course setup
+              Voltar para a configuração do curso
             </Link>
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col gap-y-2">
                 <h1 className="text-2xl font-medium">
-                  Chapter Creation
+                  Creação do Capítulo
                 </h1>
                 <span className="text-sm text-slate-700">
-                  Complete all fields {completionText}
+                Preencha todos os campos {completionText}
                 </span>
               </div>
               <ChapterActions
@@ -93,8 +93,7 @@ const ChapterIdPage = async ({
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={LayoutDashboard} />
                 <h2 className="text-xl">
-                  Customize your chapter
-                </h2>
+                Personalize seu capítulo                </h2>
               </div>
               <ChapterTitleForm
                 initialData={chapter}
@@ -111,8 +110,7 @@ const ChapterIdPage = async ({
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={Eye} />
                 <h2 className="text-xl">
-                  Access Settings
-                </h2>
+                Configurações de acesso                </h2>
               </div>
               <ChapterAccessForm
                 initialData={chapter}
@@ -125,7 +123,7 @@ const ChapterIdPage = async ({
             <div className="flex items-center gap-x-2">
               <IconBadge icon={Video} />
               <h2 className="text-xl">
-                Add a video
+                Adicionar vídeo
               </h2>
             </div>
             <ChapterVideoForm

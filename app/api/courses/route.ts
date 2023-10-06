@@ -12,7 +12,7 @@ export async function POST(
     const { title } = await req.json();
 
     if (!userId || !isTeacher(userId)) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const course = await db.course.create({
@@ -25,6 +25,6 @@ export async function POST(
     return NextResponse.json(course);
   } catch (error) {
     console.log("[COURSES]", error);
-    return new NextResponse("Internal Error", { status: 500 });
+    return new NextResponse("Erro Interno", { status: 500 });
   }
 }

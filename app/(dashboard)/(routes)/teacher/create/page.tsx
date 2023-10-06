@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
   title: z.string().min(1, {
-    message: "Title is required",
+    message: "Titulo é obrigatório",
   }),
 });
 
@@ -41,9 +41,9 @@ const CreatePage = () => {
     try {
       const response = await axios.post("/api/courses", values);
       router.push(`/teacher/courses/${response.data.id}`);
-      toast.success("Course created");
+      toast.success("Curso criado");
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Algo deu errado");
     }
   }
 
@@ -51,10 +51,11 @@ const CreatePage = () => {
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
       <div>
         <h1 className="text-2xl">
-          Name your course
+          Nome do seu curso
         </h1>
         <p className="text-sm text-slate-600">
-          What would you like to name your course? Don&apos;t worry, you can change this later.
+        Como você gostaria de nomear seu curso?
+ Nã&apos;o se preocupe, você pode mudar isso depois.
         </p>
         <Form {...form}>
           <form
@@ -67,18 +68,17 @@ const CreatePage = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    Course title
+                  Título do curso
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="e.g. 'Advanced web development'"
+                      placeholder="Ex: 'Atendimento Ambulatorial'"
                       {...field}
                     />
                   </FormControl>
                   <FormDescription>
-                    What will you teach in this course?
-                  </FormDescription>
+                  O que você vai ensinar neste curso?                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -89,14 +89,14 @@ const CreatePage = () => {
                   type="button"
                   variant="ghost"
                 >
-                  Cancel
+                  Cancelar
                 </Button>
               </Link>
               <Button
                 type="submit"
                 disabled={!isValid || isSubmitting}
               >
-                Continue
+                Continuar
               </Button>
             </div>
           </form>

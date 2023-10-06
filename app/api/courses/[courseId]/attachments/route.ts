@@ -12,7 +12,7 @@ export async function POST(
     const { url } = await req.json();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const courseOwner = await db.course.findUnique({
@@ -23,7 +23,7 @@ export async function POST(
     });
 
     if (!courseOwner) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const attachment = await db.attachment.create({
@@ -37,6 +37,6 @@ export async function POST(
     return NextResponse.json(attachment);
   } catch (error) {
     console.log("COURSE_ID_ATTACHMENTS", error);
-    return new NextResponse("Internal Error", { status: 500 });
+    return new NextResponse("Erro Interno", { status: 500 });
   }
 }

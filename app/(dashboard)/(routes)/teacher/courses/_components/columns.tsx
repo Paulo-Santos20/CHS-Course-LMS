@@ -24,7 +24,7 @@ export const columns: ColumnDef<Course>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Title
+          Titulo
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -38,7 +38,7 @@ export const columns: ColumnDef<Course>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Price
+          Preço
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -47,7 +47,7 @@ export const columns: ColumnDef<Course>[] = [
       const price = parseFloat(row.getValue("price") || "0");
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
-        currency: "USD"
+        currency: "BRL"
       }).format(price);
 
       return <div>{formatted}</div>
@@ -61,7 +61,7 @@ export const columns: ColumnDef<Course>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Published
+          Publicado
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -88,7 +88,7 @@ export const columns: ColumnDef<Course>[] = [
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-4 w-8 p-0">
-              <span className="sr-only">Open menu</span>
+              <span className="sr-only">Abrir menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -96,7 +96,7 @@ export const columns: ColumnDef<Course>[] = [
             <Link href={`/teacher/courses/${id}`}>
               <DropdownMenuItem>
                 <Pencil className="h-4 w-4 mr-2" />
-                Edit
+                Editar
               </DropdownMenuItem>
             </Link>
           </DropdownMenuContent>

@@ -12,7 +12,7 @@ export async function PUT(
     const { isCompleted } = await req.json();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     } 
 
     const userProgress = await db.userProgress.upsert({
@@ -35,6 +35,6 @@ export async function PUT(
     return NextResponse.json(userProgress);
   } catch (error) {
     console.log("[CHAPTER_ID_PROGRESS]", error);
-    return new NextResponse("Internal Error", { status: 500 });
+    return new NextResponse("Erro Interno", { status: 500 });
   }
 }

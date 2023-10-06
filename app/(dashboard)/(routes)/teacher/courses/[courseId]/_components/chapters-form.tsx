@@ -57,11 +57,11 @@ export const ChaptersForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post(`/api/courses/${courseId}/chapters`, values);
-      toast.success("Chapter created");
+      toast.success("Capítulo atualizado");
       toggleCreating();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Algo deu errado");
     }
   }
 
@@ -72,10 +72,10 @@ export const ChaptersForm = ({
       await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
         list: updateData
       });
-      toast.success("Chapters reordered");
+      toast.success("Capítulo reordenado");
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Algo deu errado");
     } finally {
       setIsUpdating(false);
     }
@@ -93,14 +93,14 @@ export const ChaptersForm = ({
         </div>
       )}
       <div className="font-medium flex items-center justify-between">
-        Course chapters
+        Capítulo do Curso
         <Button onClick={toggleCreating} variant="ghost">
           {isCreating ? (
-            <>Cancel</>
+            <>Cancelar</>
           ) : (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Add a chapter
+              Adicionar Capítulo
             </>
           )}
         </Button>
@@ -131,7 +131,7 @@ export const ChaptersForm = ({
               disabled={!isValid || isSubmitting}
               type="submit"
             >
-              Create
+              Criar
             </Button>
           </form>
         </Form>
@@ -151,7 +151,7 @@ export const ChaptersForm = ({
       )}
       {!isCreating && (
         <p className="text-xs text-muted-foreground mt-4">
-          Drag and drop to reorder the chapters
+          Arraste e solte para reordenar os capítulos
         </p>
       )}
     </div>

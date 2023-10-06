@@ -57,21 +57,21 @@ export const PriceForm = ({
       toggleEdit();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Algo deu errado");
     }
   }
 
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
-        Course price
+        Preço do Curso
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
-            <>Cancel</>
+            <>Cancelar</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit price
+              Editar preço
             </>
           )}
         </Button>
@@ -116,7 +116,7 @@ export const PriceForm = ({
                 disabled={!isValid || isSubmitting}
                 type="submit"
               >
-                Save
+                Salvar
               </Button>
             </div>
           </form>

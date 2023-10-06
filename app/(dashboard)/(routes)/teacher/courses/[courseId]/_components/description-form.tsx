@@ -28,7 +28,7 @@ interface DescriptionFormProps {
 
 const formSchema = z.object({
   description: z.string().min(1, {
-    message: "Description is required",
+    message: "Descrição é obrigatória",
   }),
 });
 
@@ -58,21 +58,21 @@ export const DescriptionForm = ({
       toggleEdit();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Algo deu errado");
     }
   }
 
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
-        Course description
+        Descrição do Curso
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
-            <>Cancel</>
+            <>Cancelar</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit description
+              Editar descrição
             </>
           )}
         </Button>
@@ -82,7 +82,7 @@ export const DescriptionForm = ({
           "text-sm mt-2",
           !initialData.description && "text-slate-500 italic"
         )}>
-          {initialData.description || "No description"}
+          {initialData.description || "Sem descrição"}
         </p>
       )}
       {isEditing && (
@@ -99,7 +99,7 @@ export const DescriptionForm = ({
                   <FormControl>
                     <Textarea
                       disabled={isSubmitting}
-                      placeholder="e.g. 'This course is about...'"
+                      placeholder="Ex: 'Este curso é sobre...'"
                       {...field}
                     />
                   </FormControl>
@@ -112,7 +112,7 @@ export const DescriptionForm = ({
                 disabled={!isValid || isSubmitting}
                 type="submit"
               >
-                Save
+                Salvar
               </Button>
             </div>
           </form>

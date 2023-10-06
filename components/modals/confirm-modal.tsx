@@ -30,13 +30,13 @@ export const ConfirmModal = ({
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone.
+            Está ação não poderá ser revertida
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction onClick={onConfirm}>
-            Continue
+            Continuar
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

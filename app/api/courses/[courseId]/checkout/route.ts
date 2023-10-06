@@ -13,7 +13,7 @@ export async function POST(
     const user = await currentUser();
 
     if (!user || !user.id || !user.emailAddresses?.[0]?.emailAddress) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const course = await db.course.findUnique({
@@ -33,18 +33,18 @@ export async function POST(
     });
 
     if (purchase) {
-      return new NextResponse("Already purchased", { status: 400 });
+      return new NextResponse("Já adquirido", { status: 400 });
     }
 
     if (!course) {
-      return new NextResponse("Not found", { status: 404 });
+      return new NextResponse("Não encontrado", { status: 404 });
     }
 
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [
       {
         quantity: 1,
         price_data: {
-          currency: "USD",
+          currency: "BRL",
           product_data: {
             name: course.title,
             description: course.description!,
@@ -91,6 +91,6 @@ export async function POST(
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.log("[COURSE_ID_CHECKOUT]", error);
-    return new NextResponse("Internal Error", { status: 500 })
+    return new NextResponse("Erro Interno", { status: 500 })
   }
 }

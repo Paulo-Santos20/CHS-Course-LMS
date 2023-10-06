@@ -17,7 +17,7 @@ export async function DELETE(
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const ownCourse = await db.course.findUnique({
@@ -28,7 +28,7 @@ export async function DELETE(
     });
 
     if (!ownCourse) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const chapter = await db.chapter.findUnique({
@@ -39,7 +39,7 @@ export async function DELETE(
     });
 
     if (!chapter) {
-      return new NextResponse("Not Found", { status: 404 });
+      return new NextResponse("Não encontrado", { status: 404 });
     }
 
     if (chapter.videoUrl) {
@@ -86,7 +86,7 @@ export async function DELETE(
     return NextResponse.json(deletedChapter);
   } catch (error) {
     console.log("[CHAPTER_ID_DELETE]", error);
-    return new NextResponse("Internal Error", { status: 500 });
+    return new NextResponse("Erro Interno", { status: 500 });
   }
 }
 
@@ -99,7 +99,7 @@ export async function PATCH(
     const { isPublished, ...values } = await req.json();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const ownCourse = await db.course.findUnique({
@@ -110,7 +110,7 @@ export async function PATCH(
     });
 
     if (!ownCourse) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Sem autorização", { status: 401 });
     }
 
     const chapter = await db.chapter.update({
@@ -157,6 +157,6 @@ export async function PATCH(
     return NextResponse.json(chapter);
   } catch (error) {
     console.log("[COURSES_CHAPTER_ID]", error);
-    return new NextResponse("Internal Error", { status: 500 }); 
+    return new NextResponse("Erro Interno", { status: 500 }); 
   }
 }

@@ -18,7 +18,7 @@ async function main() {
 
     console.log("Success");
   } catch (error) {
-    console.log("Error seeding the database categories", error);
+    console.log("Erro ao propagar as categorias do banco de dados", error);
   } finally {
     await database.$disconnect();
   }
