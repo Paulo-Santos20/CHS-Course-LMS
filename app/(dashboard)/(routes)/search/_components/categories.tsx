@@ -14,18 +14,19 @@ import { IconType } from "react-icons";
 
 import { CategoryItem } from "./category-item";
 
+
 interface CategoriesProps {
   items: Category[];
 }
 
 const iconMap: Record<Category["name"], IconType> = {
-  "Music": FcMusic,
-  "Photography": FcOldTimeCamera,
-  "Fitness": FcSportsMode,
-  "Accounting": FcSalesPerformance,
-  "Computer Science": FcMultipleDevices,
-  "Filming": FcFilmReel,
-  "Engineering": FcEngineering,
+  "Recepção.": FcMusic,
+  "Centro Cirurgico.": FcOldTimeCamera,
+  "PEP": FcMusic,
+  "Compras.": FcSalesPerformance,
+  "Radiologia.": FcMultipleDevices,
+  "Estoque.": FcFilmReel,
+  "Enfermaria Internação.": FcEngineering,
 };
 
 export const Categories = ({
