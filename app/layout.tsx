@@ -20,9 +20,6 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="pt">
-        <head>
-        <link rel="favicon" type="image/png" href="favicon.png" />
-        </head>
         <body className={inter.className}>
           <ConfettiProvider />
           <ToastProvider />
