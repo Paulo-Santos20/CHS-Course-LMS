@@ -1,48 +1,45 @@
-# Build an LMS Platform: Next.js 13,  React, Stripe, Mux, Prisma, Tailwind, MySQL | Full Course 2023
+# Construa uma plataforma LMS: Next.js 13, React, Stripe, Mux, Prisma, Tailwind, MySQL | Curso Completo 2023
 
-![Copy of Copy of Copy of Copy of Fullstack Twitter Clone (9)](https://github.com/AntonioErdeljac/next13-lms-platform/assets/23248726/fa077fca-bb74-419a-84de-54ac103bb026)
+Este é um repositório para construir uma plataforma LMS: Next.js 13, React, Stripe, Mux, Prisma, Tailwind, MySQL 
 
 
-This is a repository for Build an LMS Platform: Next.js 13,  React, Stripe, Mux, Prisma, Tailwind, MySQL | Full Course 2023
+Características principais:
 
-[VIDEO TUTORIAL](https://www.youtube.com/watch?v=Big_aFLmekI)
+- Navegar e filtrar cursos
+- Compre cursos usando Stripe
+- Marcar capítulos como concluídos ou incompletos
+- Cálculo do progresso de cada curso
+- Painel do Aluno
+- Modo professor
+- Criar novos cursos
+- Criar novos capítulos
+- Reordene facilmente a posição do capítulo arrastando e soltando
+- Faça upload de miniaturas, anexos e vídeos usando UploadThing
+- Processamento de vídeo usando Mux
+- Reprodutor de vídeo HLS usando Mux
+- Editor de rich text para descrição do capítulo
+- Autenticação usando Clerk
+- ORM usando Prisma
+- Banco de dados MySQL usando Planetscale
 
-Key Features:
 
-- Browse & Filter Courses
-- Purchase Courses using Stripe
-- Mark Chapters as Completed or Uncompleted
-- Progress Calculation of each Course
-- Student Dashboard
-- Teacher mode
-- Create new Courses
-- Create new Chapters
-- Easily reorder chapter position with drag n’ drop
-- Upload thumbnails, attachments and videos using UploadThing
-- Video processing using Mux
-- HLS Video player using Mux
-- Rich text editor for chapter description
-- Authentication using Clerk
-- ORM using Prisma
-- MySQL database using Planetscale
-
-### Prerequisites
+### Pre-requisitos
 
 **Node version 18.x.x**
 
-### Cloning the repository
+### Clonar Repositório
 
 ```shell
-git clone https://github.com/AntonioErdeljac/next13-lms-platform.git
+git clone [https://github.com/AntonioErdeljac/next13-lms-platform.git](https://github.com/Paulo-Santos20/CHS-Course-LMS.git)
 ```
 
-### Install packages
+### Instalar Pacotes
 
 ```shell
 npm i
 ```
 
-### Setup .env file
+### Instalação .env file
 
 
 ```js
@@ -68,9 +65,9 @@ STRIPE_WEBHOOK_SECRET=
 NEXT_PUBLIC_TEACHER_ID=
 ```
 
-### Setup Prisma
+### Comandos Prisma
 
-Add MySQL Database (I used PlanetScale)
+Adicione MySQL Database (I used PlanetScale)
 
 ```shell
 npx prisma generate
@@ -78,16 +75,16 @@ npx prisma db push
 
 ```
 
-### Start the app
+### Iniciar o app
 
 ```shell
 npm run dev
 ```
 
-## Available commands
+## Comando 
 
 Running commands with npm `npm run [command]`
 
-| command         | description                              |
+| comando         | descrição                             |
 | :-------------- | :--------------------------------------- |
 | `dev`           | Starts a development instance of the app |
