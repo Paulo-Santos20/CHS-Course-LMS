@@ -2,19 +2,18 @@
 
 import * as z from "zod";
 import axios from "axios";
-import MuxPlayer from "@mux/mux-player-react";
 import { Pencil, PlusCircle, Video } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Chapter, MuxData } from "@prisma/client";
+import { Chapter } from "@prisma/client";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
 
 interface ChapterVideoFormProps {
-  initialData: Chapter & { muxData?: MuxData | null };
+  initialData: Chapter;
   courseId: string;
   chapterId: string;
 };
@@ -29,14 +28,15 @@ export const ChapterVideoForm = ({
   chapterId,
 }: ChapterVideoFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [videoUrl, setVideoUrl] = useState(initialData.videoUrl || '');
 
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async () => {
     try {
-      await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, values);
+      await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, { videoUrl });
       toast.success("Capítulo atualizado");
       toggleEdit();
       router.refresh();
@@ -74,22 +74,27 @@ export const ChapterVideoForm = ({
           </div>
         ) : (
           <div className="relative aspect-video mt-2">
-            <MuxPlayer
-              playbackId={initialData?.muxData?.playbackId || ""}
-            />
+            <iframe
+              width="560"
+              height="315"
+              src={`${initialData.videoUrl}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         )
       )}
       {isEditing && (
         <div>
-          <FileUpload
-            endpoint="chapterVideo"
-            onChange={(url) => {
-              if (url) {
-                onSubmit({ videoUrl: url });
-              }
-            }}
+          <input
+            type="text"
+            value={videoUrl}
+            onChange={(e) => setVideoUrl(e.target.value)}
+            placeholder="Insira o ID do vídeo do YouTube aqui"
           />
+          <button onClick={onSubmit}>Enviar</button>
           <div className="text-xs text-muted-foreground mt-4">
            Carregue o video do capítulo
           </div>

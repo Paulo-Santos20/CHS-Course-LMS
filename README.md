@@ -15,8 +15,8 @@ Características principais:
 - Criar novos capítulos
 - Reordene facilmente a posição do capítulo arrastando e soltando
 - Faça upload de miniaturas, anexos e vídeos usando UploadThing
-- Processamento de vídeo usando Mux
-- Reprodutor de vídeo HLS usando Mux
+- Processamento de vídeo usando Mux(Substituido pelo Youtube Player)
+- Reprodutor de vídeo HLS usando Mux(Substituido pelo Youtube Player)
 - Editor de rich text para descrição do capítulo
 - Autenticação usando Clerk
 - ORM usando Prisma

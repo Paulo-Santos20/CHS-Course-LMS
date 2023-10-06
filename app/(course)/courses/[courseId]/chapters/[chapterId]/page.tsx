@@ -24,8 +24,7 @@ const ChapterIdPage = async ({
 
   const {
     chapter,
-    course,
-    muxData,
+    course,    
     attachments,
     nextChapter,
     userProgress,
@@ -58,18 +57,19 @@ const ChapterIdPage = async ({
           label="Você precisa adquirir este curso para assistir a este capítulo."
         />
       )}
-      <div className="flex flex-col max-w-4xl mx-auto pb-20">
-        <div className="p-4">
-          <VideoPlayer
-            chapterId={params.chapterId}
-            title={chapter.title}
-            courseId={params.courseId}
-            nextChapterId={nextChapter?.id}
-            playbackId={muxData?.playbackId!}
-            isLocked={isLocked}
-            completeOnEnd={completeOnEnd}
-          />
-        </div>
+     <div className="flex flex-col max-w-4xl mx-auto pb-20">
+  <div className="p-4 relative aspect-video">
+    {!isLocked && (
+      <iframe
+        className="absolute top-0 left-0 w-full h-full"
+        src={`${chapter.videoUrl}?rel=0`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    )}
+  </div>
         <div>
           <div className="p-4 flex flex-col md:flex-row items-center justify-between">
             <h2 className="text-2xl font-semibold mb-2">
