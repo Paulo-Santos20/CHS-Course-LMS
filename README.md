@@ -23,14 +23,14 @@ Características principais:
 - Banco de dados MySQL usando Planetscale
 
 
-### Prerequisitos
+### Pre-requisitos
 
 **Node version 18.x.x**
 
-### Cloning the repository
+### Clonar Repositório
 
 ```shell
-git clone https://github.com/AntonioErdeljac/next13-lms-platform.git
+git clone [https://github.com/AntonioErdeljac/next13-lms-platform.git](https://github.com/Paulo-Santos20/CHS-Course-LMS.git)
 ```
 
 ### Instalar Pacotes
@@ -39,7 +39,7 @@ git clone https://github.com/AntonioErdeljac/next13-lms-platform.git
 npm i
 ```
 
-### Setup .env file
+### Instalação .env file
 
 
 ```js
