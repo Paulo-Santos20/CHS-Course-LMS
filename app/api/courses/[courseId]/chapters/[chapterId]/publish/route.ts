@@ -31,12 +31,7 @@ export async function PATCH(
         courseId: params.courseId,
       }
     });
-
-    const muxData = await db.muxData.findUnique({
-      where: {
-        chapterId: params.chapterId,
-      }
-    });
+    
 
     if (!chapter || !chapter.title || !chapter.description || !chapter.videoUrl) {
       return new NextResponse("Faltando campos obrigatórios", { status: 400 });

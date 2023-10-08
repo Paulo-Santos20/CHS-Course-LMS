@@ -42,8 +42,7 @@ export const getChapter = async ({
     if (!chapter || !course) {
       throw new Error("Chapter or course not found");
     }
-
-    let muxData = null;
+  
     let attachments: Attachment[] = [];
     let nextChapter: Chapter | null = null;
 
@@ -92,8 +91,7 @@ export const getChapter = async ({
     console.log("[GET_CHAPTER]", error);
     return {
       chapter: null,
-      course: null,
-      muxData: null,
+      course: null,      
       attachments: [],
       nextChapter: null,
       userProgress: null,
