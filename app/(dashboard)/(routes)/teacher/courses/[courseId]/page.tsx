@@ -132,6 +132,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
               </div>
               <AttachmentForm initialData={course} courseId={course.id} />
             </div>
+            <DescriptionForm initialData={course} courseId={course.id} />
           </div>
         </div>
       </div>

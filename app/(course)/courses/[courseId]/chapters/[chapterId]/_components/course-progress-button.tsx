@@ -35,11 +35,13 @@ export const CourseProgressButton = ({
       });
 
       if (!isCompleted && !nextChapterId) {
-        confetti.onOpen();
+        confetti.onOpen();       
       }
 
       if (!isCompleted && nextChapterId) {
         router.push(`/courses/${courseId}/chapters/${nextChapterId}`);
+        
+
       }
 
       toast.success("Progresso atualizado");
