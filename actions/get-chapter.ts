@@ -5,7 +5,7 @@ interface GetChapterProps {
   userId: string;
   courseId: string;
   chapterId: string;
-}
+};
 
 export const getChapter = async ({
   userId,
@@ -18,8 +18,8 @@ export const getChapter = async ({
         userId_courseId: {
           userId,
           courseId,
-        },
-      },
+        }
+      }
     });
 
     const course = await db.course.findUnique({
@@ -29,28 +29,45 @@ export const getChapter = async ({
       },
       select: {
         price: true,
-      },
+      }
     });
 
     const chapter = await db.chapter.findUnique({
       where: {
         id: chapterId,
         isPublished: true,
-      },
+      }
     });
 
     if (!chapter || !course) {
       throw new Error("Chapter or course not found");
     }
 
+    let muxData = null;
     let attachments: Attachment[] = [];
     let nextChapter: Chapter | null = null;
 
     if (purchase) {
       attachments = await db.attachment.findMany({
         where: {
+          courseId: courseId
+        }
+      });
+    }
+
+    if (chapter.isFree || purchase) {     
+
+      nextChapter = await db.chapter.findFirst({
+        where: {
           courseId: courseId,
+          isPublished: true,
+          position: {
+            gt: chapter?.position,
+          }
         },
+        orderBy: {
+          position: "asc",
+        }
       });
     }
 
@@ -59,8 +76,8 @@ export const getChapter = async ({
         userId_chapterId: {
           userId,
           chapterId,
-        },
-      },
+        }
+      }
     });
 
     return {
@@ -76,10 +93,11 @@ export const getChapter = async ({
     return {
       chapter: null,
       course: null,
+      muxData: null,
       attachments: [],
       nextChapter: null,
       userProgress: null,
       purchase: null,
-    };
+    }
   }
-};
+}
