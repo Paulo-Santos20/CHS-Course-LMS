@@ -75,8 +75,8 @@ export const ChapterVideoForm = ({
         ) : (
           <div className="relative aspect-video mt-2">
             <iframe
-              width="560"
-              height="315"
+              width="auto"
+              height="auto"
               src={`${initialData.videoUrl}`}
               title="YouTube video player"
               frameBorder="0"

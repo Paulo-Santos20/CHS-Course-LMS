@@ -1,6 +1,5 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-
 import { db } from "@/lib/db";
 
 export async function PATCH(
@@ -20,11 +19,7 @@ export async function PATCH(
         userId,
       },
       include: {
-        chapters: {
-          include: {
-            muxData: true,
-          }
-        }
+        chapters: true,
       }
     });
 
