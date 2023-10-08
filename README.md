@@ -10,7 +10,7 @@ Características principais:
 - Marcar capítulos como concluídos ou incompletos
 - Cálculo do progresso de cada curso
 - Painel do Aluno
-- Modo professor
+- Modo Implementador
 - Criar novos cursos
 - Criar novos capítulos
 - Reordene facilmente a posição do capítulo arrastando e soltando
